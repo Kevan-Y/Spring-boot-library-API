@@ -1,5 +1,6 @@
 package com.kyang47.as2.book;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.kyang47.as2.library.Library;
 
 import javax.persistence.*;
@@ -24,7 +25,8 @@ public class Book {
     @Column(columnDefinition = "TEXT")
     private String summary;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne()
+    @JsonBackReference
     @JoinColumn(name = "library_id")
     private Library library;
 

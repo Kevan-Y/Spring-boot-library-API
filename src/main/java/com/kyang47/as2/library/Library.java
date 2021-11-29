@@ -1,7 +1,6 @@
 package com.kyang47.as2.library;
 
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.kyang47.as2.book.Book;
 
 import javax.persistence.*;
@@ -10,9 +9,6 @@ import java.util.List;
 
 @Entity
 @Table
-@JsonIdentityInfo(
-        generator = ObjectIdGenerators.PropertyGenerator.class,
-        property = "id")
 public class Library {
     @Id
     @SequenceGenerator(
@@ -29,6 +25,7 @@ public class Library {
     private String address;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "library", cascade = CascadeType.ALL)
+    @JsonManagedReference
     private List<Book> books = new ArrayList<>();
 
     public Library() {

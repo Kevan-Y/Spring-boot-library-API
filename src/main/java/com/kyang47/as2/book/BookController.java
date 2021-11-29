@@ -16,8 +16,12 @@ public class BookController {
     }
 
     @GetMapping
-    public List<Book> getBooks() {
-        return bookService.getBooks();
+    public List<Book> getBooks(@RequestParam(value = "title", required = false) String title) {
+        if (title != null) {
+            return bookService.getBookByName(title);
+        } else {
+            return bookService.getBooks();
+        }
     }
 
     @GetMapping(path = "{bookId}")

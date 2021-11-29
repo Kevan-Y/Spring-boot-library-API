@@ -54,6 +54,11 @@ public class BookService {
 
     public Book getBookById(Long id) {
         return bookRepository.findById(id).orElseThrow(() ->
-                new IllegalStateException("Library with id " + id + " does not exists"));
+                new IllegalStateException("Book with id " + id + " does not exists"));
+    }
+
+    public List<Book> getBookByName(String name) {
+        return bookRepository.findBookByName(name).orElseThrow(() ->
+                new IllegalStateException("Book with name " + name + " does not exists"));
     }
 }

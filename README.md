@@ -62,11 +62,13 @@ DELETE /api/v1/book/{bookId}
 
 ```bash
 GET /api/v1/book
+
+Optional query: title
 ```
 
 ## Schema
 
-```json
+```text
 Book{
  id : integer($int64)
  title : string
@@ -75,7 +77,7 @@ Book{
 }
 ```
 
-```json
+```text
 Libray{
  id : integer($int64)
  address : string
