@@ -1,4 +1,4 @@
-# JAC 555 - Assignment 2 API
+# Library API
 
 ## Routes
 
